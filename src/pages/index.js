@@ -7,9 +7,10 @@ import {
 
 // todo store preview variable in context
 // todo add description and icon
-export default function Home ({ story, preview }) {
-  story = useStoryblokState(story)
-
+export default function Home ({ story }) {
+  story = useStoryblokState(story, {
+    resolve_relations: ['PopularProjects.projects']
+  })
   return (
     <div>
       <Head>
@@ -28,17 +29,19 @@ export async function getStaticProps ({ params, ...context }) {
   const sbParams = {
     // version: context.preview ? 'draft' : 'published',
     version: 'draft',
-    resolve_links: 'url'
+    resolve_links: 'url',
+    resolve_relations: ['PopularProjects.projects']
   }
 
   const storyblokApi = getStoryblokApi()
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams)
-  const { data: config } = await storyblokApi.get('cdn/stories/config')
+  const { data: config } = await storyblokApi.get('cdn/stories/config', sbParams)
+  // adding projects to story
 
   return {
     props: {
-      story: data ? data.story : false,
-      key: data ? data.story.id : false,
+      story: data.story,
+      key: data.story.id,
       config: config ? config.story : false,
       preview: context.preview || false
     },
