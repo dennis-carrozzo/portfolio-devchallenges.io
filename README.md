@@ -1,38 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">My Portfolio</h1>
 
-## Getting Started
+<div align="center">
+   My personal portfolio project
+</div>
 
-First, run the development server:
+<div align="center">
+  <h3>
+    <a href="https://dennisfullstack.dev/">
+      Demo
+    </a>
+    <span> | </span>
+    <a href="https://github.com/dennis-carrozzo/portfolio-devchallenges.io">
+      Code
+    </a>
+    <span> | </span>
+    <a href="https://devchallenges.io/challenges/5ZnOYsSXM24JWnCsNFlt">
+      Challenge
+    </a>
+  </h3>
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<!-- TABLE OF CONTENTS -->
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Table of Contents
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- [Overview](#overview)
+- [Built With](#built-with)
+- [Features](#features)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<!-- OVERVIEW -->
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![screenshot](/public/screenshot.png)
 
-## Learn More
+A simple portfolio project realized following a figma design from devchallenges.io. The Website is built with NextJs, React, @MUI/material, Twilio SendGrid and StoryblokCMS. 
 
-To learn more about Next.js, take a look at the following resources:
+### Built With
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [@MUI/material](https://mui.com/)
+- [Twilio Sendgrid](https://sendgrid.com/)
+- [Storyblok CMS](https://www.storyblok.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Features
 
-## Deploy on Vercel
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge to build a website given a Figma design file. I personally decided to deviate a bit from the original design and adapt it to my needs considering that I'll actually use the website as my portfolio. 
+This Project is built with the NextJs framework and hosted on vercel platform.@MUI/material is used for styling and Twilio Sendgrid to handle contact form follow up. The contact form input is sent to the backend route /api/contact for further validation (<b>because you always validate in the backend!</b>) and it sends the email to admin and a confirmation to the user. All the content is managed through StoryblokCMS, allowing for greater flexibility with the design and website content, given the most important @MUI/material components are ported so they can be used directly in storyblok dashboard
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Acknowledgements
+
+- [Storyblok CMS Next.js Ulitmate Tutorial](https://www.storyblok.com/tp/nextjs-headless-cms-ultimate-tutorial)
+
+## Contact
+
+- Website [dennisfullstack.dev](https://dennisfullstack.dev)
+- GitHub [@ednnis-carrozzo](https://github.com/dennis-carrozzo)
+- LinkedIn [@dennis-carrozzo](https://www.linkedin.com/in/dennis-carrozzo/)
