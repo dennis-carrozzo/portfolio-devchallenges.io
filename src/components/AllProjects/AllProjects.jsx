@@ -104,12 +104,15 @@ export default function AllProjects ({ blok }) {
               <Grid
                 item
                 xs={12}
-                md={5}
-                lg={3}
+                md={6}
+                lg={4}
                 key={project._uid}
                 justifyContent='center'
                 alignItems='center'
-                // sx={{padding:'10 !important'}}
+                sx={{
+                  paddingLeft: { xs: '5px !important', md: 0, lg: 20 },
+                  paddingRight: { xs: 6, md: 10, lg: 20 }
+                }}
               >
                 <ProjectCard project={project} />
               </Grid>
