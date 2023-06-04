@@ -16,11 +16,10 @@ import Toolbar from '@mui/material/Toolbar'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import NextMuiLink from '@/components/NextMuiLink'
-import { IcecreamOutlined } from '@mui/icons-material'
+
 // todo: add social links on drawer
 // todo: move skills to config ~> config to context on load
 // todo: move contacts to config ~> config to context on load
-// todo: replace icon with letters logo
 const Config = ({ blok }) => {
   const [mobileOpen, setMobileOpen] = useState(false)
   const handleDrawerToggle = () => {
@@ -35,26 +34,23 @@ const Config = ({ blok }) => {
         sx={{ paddingBlock: 2, position: 'relative' }}
       >
         <CloseIcon sx={{ position: 'absolute', right: 20 }} />
-        <NextMuiLink href='/' sx={{ textDecoration: 'none' }}>
+        <Stack
+          component={NextMuiLink}
+          href='/'
+          sx={{ textDecoration: 'none', backgroundColor: 'primary.main' }}
+        >
           <Image
             src='/logo/icons8-tech-100.png'
             width='50'
             height='50'
             alt='logo'
           />
-          {/* <Typography variant='h6' color='inherit' noWrap>
-            Dennis, Full Stack Developer
-          </Typography> */}
-        </NextMuiLink>
+        </Stack>
       </Stack>
       <Divider />
       <List sx={{ marginBlock: 5 }}>
         {blok?.HeaderMenu?.map(nestedBlok => (
-          <ListItem
-            key={nestedBlok._uid}
-            // disablePadding
-            sx={{ textAlign: 'center' }}
-          >
+          <ListItem key={nestedBlok._uid} sx={{ textAlign: 'center' }}>
             <ListItemText
               primary={
                 <Button variant='text'>
