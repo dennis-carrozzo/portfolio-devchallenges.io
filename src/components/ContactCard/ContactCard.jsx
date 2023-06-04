@@ -77,7 +77,7 @@ export default function ContactCard ({ blok }) {
             justifyContent='start'
             alignItems='center'
             component={NextMuiLink}
-            href={blok.githubLink}
+            href={blok.githubLink.cached_url}
           >
             <Github />
             <Typography variant='subtitle2'>{blok.githubUsername}</Typography>
@@ -89,7 +89,7 @@ export default function ContactCard ({ blok }) {
             justifyContent='start'
             alignItems='center'
             component={NextMuiLink}
-            href={blok.linkedInLink}
+            href={blok.linkedInLink.cached_url}
           >
             <LinkedIn />
             <Typography variant='subtitle2'>{blok.linkedInUsername}</Typography>
