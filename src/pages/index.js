@@ -5,7 +5,6 @@ import {
   StoryblokComponent
 } from '@storyblok/react'
 
-// todo store preview variable in context
 // todo add description and icon
 export default function Home ({ story }) {
   story = useStoryblokState(story, {
@@ -25,18 +24,18 @@ export default function Home ({ story }) {
 export async function getStaticProps ({ params, ...context }) {
   const slug = 'home'
 
-  // load the draft version
   const sbParams = {
-    // version: context.preview ? 'draft' : 'published',
-    version: 'draft',
+    version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
     resolve_links: 'url',
     resolve_relations: ['PopularProjects.projects']
   }
 
   const storyblokApi = getStoryblokApi()
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams)
-  const { data: config } = await storyblokApi.get('cdn/stories/config', sbParams)
-  // adding projects to story
+  const { data: config } = await storyblokApi.get(
+    'cdn/stories/config',
+    sbParams
+  )
 
   return {
     props: {
@@ -45,6 +44,6 @@ export async function getStaticProps ({ params, ...context }) {
       config: config ? config.story : false,
       preview: context.preview || false
     },
-    revalidate: context.preview ? 0 : 3600 // revalidate every hour only in production
+    revalidate: 3600
   }
 }
