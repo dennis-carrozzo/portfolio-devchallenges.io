@@ -81,44 +81,56 @@ export default function AllProjects ({ blok }) {
 
   return (
     <Stack justifyContent='center' alignItems='start' spacing={2}>
+      {/* Tags Filter */}
       <Stack
         direction={{ xs: 'column', md: 'row' }}
         spacing={2}
-        sx={{ paddingInline: { xs: 1, md: 25 } }}
+        sx={{
+          marginBottom: 3,
+          width: 1,
+          paddingInline: { xs: 1 },
+          paddingLeft: { sm: '10%' }
+        }}
       >
-        <Typography variant='h6'>Filter By tag:</Typography>
+        <Typography variant='h6' sx={{ minWidth: 'fit-content' }}>
+          Filter By tag:
+        </Typography>
         <TagsList
           tags={tags}
           selectedTags={selectedTags}
           clickHandler={setVisibilityFilter}
         />
       </Stack>
-      <Grid
-        container
-        {...JSON.parse(blok?.gridProps)}
-        {...storyblokEditable(blok)}
+      {/* Projects Grid wrapper */}
+      <Stack
+        justifyContent='center'
+        alignItems='center'
+        sx={{ width: 1, paddingInline: { sm: '10%' } }}
       >
-        {!!visibleProjects[0] &&
-          visibleProjects.map(project => {
-            return (
-              <Grid
-                item
-                xs={12}
-                md={6}
-                lg={4}
-                key={project._uid}
-                justifyContent='center'
-                alignItems='center'
-                sx={{
-                  paddingLeft: { xs: '5px !important', md: 0, lg: 20 },
-                  paddingRight: { xs: 6, md: 10, lg: 20 }
-                }}
-              >
-                <ProjectCard project={project} />
-              </Grid>
-            )
-          })}
-      </Grid>
+        {/* Projects Grid */}
+        <Grid
+          container
+          {...JSON.parse(blok?.gridProps)}
+          {...storyblokEditable(blok)}
+        >
+          {!!visibleProjects[0] &&
+            visibleProjects.map(project => {
+              return (
+                <Grid
+                  item
+                  xs={12}
+                  md={6}
+                  lg={4}
+                  key={project._uid}
+                  justifyContent='center'
+                  alignItems='center'
+                >
+                  <ProjectCard project={project} />
+                </Grid>
+              )
+            })}
+        </Grid>
+      </Stack>
     </Stack>
   )
 }

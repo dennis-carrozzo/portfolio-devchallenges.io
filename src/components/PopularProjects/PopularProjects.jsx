@@ -67,7 +67,11 @@ export default function PopularProjects ({ blok }) {
           spacing={2}
           justifyContent='space-between'
         >
-          <Typography variant='h6' component='h2' sx={{ display: 'inline' }}>
+          <Typography
+            variant='h6'
+            component='h2'
+            sx={{ display: 'inline', minWidth: 'fit-content' }}
+          >
             Projects ({blok?.projects?.length || 0})
           </Typography>
           <TagsList
@@ -78,6 +82,7 @@ export default function PopularProjects ({ blok }) {
         </Stack>
       </Card>
       {visibleProjects?.map(nestedBlok => {
+        nestedBlok.content.variant = 'large'
         return (
           <ProjectCard project={nestedBlok.content} key={nestedBlok.uuid} />
         )
