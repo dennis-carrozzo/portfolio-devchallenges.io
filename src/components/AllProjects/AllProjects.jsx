@@ -44,7 +44,7 @@ export default function AllProjects ({ blok }) {
     const getProjects = async () => {
       const storyblokApi = getStoryblokApi()
       const { data } = await storyblokApi.get(`cdn/stories`, {
-        version: 'draft', // or 'published'
+        version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
         starts_with: 'projects/',
         is_startpage: false
       })

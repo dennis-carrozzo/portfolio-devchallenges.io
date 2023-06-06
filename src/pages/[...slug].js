@@ -20,16 +20,17 @@ export default function Page ({ story, projects }) {
 
 export async function getStaticProps ({ params, ...context }) {
   const slug = params.slug ? params.slug.join('/') : 'home'
-  // load the draft version
   const sbParams = {
-    // version: context.preview ? 'draft' : 'published',
-    version: 'draft',
+    version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
     resolve_links: 'url'
   }
-  
+
   const storyblokApi = getStoryblokApi()
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams)
-  const { data: config } = await storyblokApi.get('cdn/stories/config',sbParams)
+  const { data: config } = await storyblokApi.get(
+    'cdn/stories/config',
+    sbParams
+  )
   const { data: projects } = await storyblokApi.get('cdn/stories', {
     ...sbParams,
     starts_with: 'projects/',
@@ -42,11 +43,10 @@ export async function getStaticProps ({ params, ...context }) {
       projects,
       config: config ? config.story : false
     },
-    revalidate: context.preview ? 0 : 3600 // revalidate every hour in production only
+    revalidate: 3600
   }
 }
 
-// todo: load correct version for production based on context
 // todo! filter out config link and other unwanted
 export async function getStaticPaths () {
   const storyblokApi = getStoryblokApi()
