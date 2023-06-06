@@ -21,11 +21,13 @@ export default function Projectcard ({ project }) {
               md={5}
               sx={{ borderRadius: 10, overflow: 'hidden' }}
             >
-              <CardMedia
-                image={project?.image?.filename}
-                alt={project?.image?.alt}
-                sx={{ width: 1, height: 1 }}
-              />
+              <Stack justifyContent='center' alignItems='center'>
+                <CardMedia
+                  image={project?.image?.filename}
+                  alt={project?.image?.alt}
+                  sx={{ width: 200, height: 200 }}
+                />
+              </Stack>
             </Grid>
             <Grid item xs={12} md={7}>
               {/* Tags */}
@@ -43,11 +45,21 @@ export default function Projectcard ({ project }) {
                 {project?.title}
               </Typography>
               {/* Summary */}
-              <Typography variant='body1' color='secondary'>
+              <Typography
+                variant='body1'
+                color='secondary'
+                sx={{ paddingBlock: 2 }}
+              >
                 {project?.summary}
               </Typography>
               {/* Actions */}
-              <CardActions>
+              <Stack
+                component={CardActions}
+                direction='row'
+                spacing={1}
+                sx={{ paddingBlock: 2 }}
+                divider={<Divider orientation='vertical' flexItem />}
+              >
                 <NextMuiLink href={project?.demoLink?.url}>
                   <Button
                     variant='contained'
@@ -62,7 +74,7 @@ export default function Projectcard ({ project }) {
                     Code
                   </Button>
                 </NextMuiLink>
-              </CardActions>
+              </Stack>
             </Grid>
           </Grid>
         </CardContent>
@@ -72,6 +84,7 @@ export default function Projectcard ({ project }) {
     return (
       <Stack
         component={Card}
+        spacing={1}
         justifyContent='center'
         alignItems='center'
         sx={{ minWidth: 300, padding: 2 }}
@@ -100,7 +113,17 @@ export default function Projectcard ({ project }) {
           sx={{ width: 200, height: 200 }}
         />
         <CardContent>
-          <Typography variant='body2' color='secondary' align='left'>
+          <Typography
+            variant='body2'
+            color='secondary'
+            align='left'
+            sx={{
+              width: 200,
+              height: 80,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
+            }}
+          >
             {project?.summary}
           </Typography>
         </CardContent>
