@@ -5,7 +5,7 @@ export default async function handler (req, res) {
     verifySignature(req.body, req.headers['webhook-signature'])
     const pathToRevalidate =
       req.body.full_slug === 'home' ? '/' : `/${req.body.full_slug}`
-    await res.revalidate(pathToRevalidate)
+    res.revalidate(pathToRevalidate)
     return res.status(200).json({ revalidated: true })
   } catch (err) {
     return res.status(500).json({ message: 'Error revalidating' })
