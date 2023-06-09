@@ -42,8 +42,7 @@ export async function getStaticProps ({ params, ...context }) {
       key: data ? data.story.id : false,
       projects,
       config: config ? config.story : false
-    },
-    revalidate: 3600
+    }
   }
 }
 
