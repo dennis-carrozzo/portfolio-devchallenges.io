@@ -78,9 +78,9 @@ export default function ContactForm () {
               align='center'
               sx={{ width: 1, maxWidth: 300 }}
             >
-              Share Your Project Ideas or Let's Collaborate! Message me to
+              Share Your Project Ideas or Let&apos;s Collaborate! Message me to
               discuss your project, work together, or simply have a friendly
-              chat. I'm here to bring your vision to reality! 🙂
+              chat. I&apos;m here to bring your vision to reality! 🙂
             </Typography>
             <TextField
               error={!!errors.name && touched.name}
