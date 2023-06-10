@@ -8,6 +8,7 @@ export default async function handler (req, res) {
     res.revalidate(pathToRevalidate)
     return res.status(200).json({ revalidated: true })
   } catch (err) {
+    console.log(err)
     return res.status(500).json({ message: 'Error revalidating' })
   }
 }

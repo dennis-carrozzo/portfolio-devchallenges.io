@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import { Message } from '@mui/icons-material'
 import validateContactForm from '@/utils/validateContactForm'
+// Todo: use dynamic content
 export default function ContactForm () {
   const [openModal, setOpenModal] = useState(false)
   const [modalState, setModalState] = useState('')
@@ -69,7 +70,7 @@ export default function ContactForm () {
               <Message />
             </Avatar>
             <Typography component='h1' variant='h5'>
-              Contact Me
+              Get In Touch
             </Typography>
             <Typography
               variant='subtitle1'
@@ -77,8 +78,9 @@ export default function ContactForm () {
               align='center'
               sx={{ width: 1, maxWidth: 300 }}
             >
-              message me about your project idea or to work together or just to
-              have a chat 🙂
+              Share Your Project Ideas or Let&apos;s Collaborate! Message me to
+              discuss your project, work together, or simply have a friendly
+              chat. I&apos;m here to bring your vision to reality! 🙂
             </Typography>
             <TextField
               error={!!errors.name && touched.name}
@@ -118,6 +120,16 @@ export default function ContactForm () {
             <Button type='submit' disabled={isSubmitting}>
               Submit
             </Button>
+            <Typography
+              variant='subtitle1'
+              color='secondary'
+              align='center'
+              sx={{ width: 1, maxWidth: 300 }}
+            >
+              Please provide the necessary details so we can discuss your
+              project requirements and explore the available options for
+              collaboration.
+            </Typography>
           </Stack>
         )}
       </Formik>
