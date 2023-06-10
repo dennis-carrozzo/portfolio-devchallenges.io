@@ -48,7 +48,15 @@ export default function Projectcard ({ project }) {
               <Typography
                 variant='body1'
                 color='secondary'
-                sx={{ paddingBlock: 2 }}
+                sx={{
+                  marginBlock: 2,
+                  width: 300,
+                  WebkitLineClamp: 3,
+                  display: '-webkit-box',
+                  WebkitBoxOrient: 'vertical',
+                  textOverflow: 'ellipsis',
+                  overflow: 'hidden'
+                }}
               >
                 {project?.summary}
               </Typography>
@@ -60,7 +68,7 @@ export default function Projectcard ({ project }) {
                 sx={{ paddingBlock: 2 }}
                 divider={<Divider orientation='vertical' flexItem />}
               >
-                <NextMuiLink href={project?.demoLink?.url}>
+                <NextMuiLink href={project?.demoLink?.url} target='blank'>
                   <Button
                     variant='contained'
                     color='blue'
@@ -69,7 +77,7 @@ export default function Projectcard ({ project }) {
                     Demo
                   </Button>
                 </NextMuiLink>
-                <NextMuiLink href={project?.codeLink?.url}>
+                <NextMuiLink href={project?.codeLink?.url} target='blank'>
                   <Button variant='outlined' color='blue'>
                     Code
                   </Button>
@@ -112,16 +120,23 @@ export default function Projectcard ({ project }) {
           alt={project?.image?.alt}
           sx={{ width: 200, height: 200 }}
         />
-        <CardContent>
+        <CardContent
+          sx={{
+            marginBlock: 2,
+            height: 100
+          }}
+        >
           <Typography
             variant='body2'
             color='secondary'
             align='left'
             sx={{
               width: 200,
-              height: 80,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis'
+              WebkitLineClamp: 3,
+              display: '-webkit-box',
+              WebkitBoxOrient: 'vertical',
+              textOverflow: 'ellipsis',
+              overflow: 'hidden'
             }}
           >
             {project?.summary}
@@ -135,12 +150,12 @@ export default function Projectcard ({ project }) {
           spacing={1}
           divider={<Divider orientation='vertical' flexItem />}
         >
-          <NextMuiLink href={project?.demoLink?.url}>
+          <NextMuiLink href={project?.demoLink?.url} target='blank'>
             <Button variant='contained' color='blue' sx={{ color: 'white' }}>
               Demo
             </Button>
           </NextMuiLink>
-          <NextMuiLink href={project?.codeLink?.url}>
+          <NextMuiLink href={project?.codeLink?.url} target='blank'>
             <Button variant='outlined' color='blue'>
               Code
             </Button>
