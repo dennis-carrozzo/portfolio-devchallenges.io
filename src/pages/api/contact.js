@@ -3,7 +3,6 @@ import sgMail from '@sendgrid/mail'
 
 // todo: test security with postman
 // todo: add logging handling to 3rd party provider
-// todo: add confirmation email
 export default async function handler ({ method, body }, res) {
   // validating request method
   if (method !== 'POST') {
@@ -37,7 +36,7 @@ async function emailAdmin (body) {
     from: process.env.ADMIN_EMAIL,
     subject: `portfolio contact form message from ${body.name}`,
     text: `${body.message}\n\t${body.email}`,
-    html: `${body.message}\n\t${body.email}`
+    html: `<p>${body.message}</p><p>from: ${body.email}</p>`
   }
   try {
     const response = await sgMail.send(msg)
@@ -53,11 +52,21 @@ async function emailAdmin (body) {
 async function emailUser (body) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
   const msg = {
-    to: body.email,
     from: process.env.ADMIN_EMAIL,
-    subject: `Thank you for contacting`,
-    text: 'thanks',
-    body: 'thanks'
+    template_id: process.env.SENDGRID_CONTACT_FORM_REPLY_TEMPLATE_ID,
+    personalizations: [
+      {
+        to: body.email,
+        dynamic_template_data: {
+          website_url: process.env.WEBSITE_URL,
+          website_url_to_projects: `${process.env.WEBSITE_URL}/projects`,
+          admin_phone: process.env.ADMIN_PHONE,
+          client_name: body.name,
+          admin_name: 'Dennis',
+          admin_role: 'Full stack Developer'
+        }
+      }
+    ]
   }
   try {
     const response = await sgMail.send(msg)
