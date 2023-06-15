@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev:proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem",
+    "dev:proxy": "mkcert create-ca && mkcert create-cert && local-ssl-proxy --source 3010 --target 3000 --cert cert.crt --key cert.key",
     "dev:spin-up": "next  dev",
     "dev": "concurrently \"npm:dev:*\"",
     "build": "next build",
@@ -28,6 +28,8 @@
     "storyblok-rich-text-react-renderer": "^2.8.0"
   },
   "devDependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "local-ssl-proxy": "^2.0.5",
+    "mkcert": "^1.5.1"
   }
 }
