@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://dennisfullstack.dev/">
+    <a href="https://personal-portfolio-full-stack-dev.vercel.app/">
       Demo
     </a>
     <span> | </span>
@@ -48,8 +48,8 @@ A simple portfolio project realized following a figma design from devchallenges.
 
 ## Features
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge to build a website given a Figma design file. I personally decided to deviate a bit from the original design and adapt it to my needs considering that I'll actually use the website as my portfolio. 
-This Project is built with the NextJs framework and hosted on vercel platform.@MUI/material is used for styling and Twilio Sendgrid to handle contact form follow up. The contact form input is sent to the backend route /api/contact for further validation (<b>because you always validate in the backend!</b>) and it sends the email to admin and a confirmation to the user. All the content is managed through StoryblokCMS, allowing for greater flexibility with the design and website content, given the most important @MUI/material components are ported so they can be used directly in storyblok dashboard
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge to build a website given a Figma design file. I personally decided to deviate a bit from the original design and adapt it to my needs. 
+This Project is built with the NextJs framework and hosted on vercel platform.@MUI/material is used for styling and Twilio Sendgrid to handle contact form follow up. The contact form input is sent to the backend route /api/contact for further validation and it sends the email to admin and a confirmation to the user. All the content is managed through StoryblokCMS, allowing for greater flexibility with the design and website content, given the most important @MUI/material components are ported so they can be used directly in storyblok dashboard
 
 
 
